@@ -3,7 +3,10 @@ import asyncpg
 
 class Database:
     def __init__(self):
-        self.pool = asyncpg.create_pool(
+        self.pool = None
+
+    async def connect(self):
+        self.pool = await asyncpg.create_pool(
             user = Config.DB_USER,
             password = Config.DB_PASSWORD,
             database = Config.DB_DATABASE,
@@ -31,3 +34,10 @@ class Database:
         
 database = Database()
 
+# async def main():
+#     await database.connect()
+#     abc = await database.fetch("SELECT * FROM students")
+#     print(abc)
+# 
+# import asyncio
+# asyncio.run(main())
