@@ -1,4 +1,4 @@
-from core.config import Config
+from core import config
 from typing import Any
 from asyncpg import create_pool, Record
 
@@ -8,11 +8,11 @@ class Database:
 
     async def connect(self) -> None:
         self.pool = await create_pool(
-            user = Config.DB_USER,
-            password = Config.DB_PASSWORD,
-            database = Config.DB_DATABASE,
-            host = Config.DB_HOST,
-            port = Config.DB_PORT,
+            user = config.DB_USER,
+            password = config.DB_PASSWORD,
+            database = config.DB_DATABASE,
+            host = config.DB_HOST,
+            port = config.DB_PORT,
             min_size = 3,
             max_size = 10
         )

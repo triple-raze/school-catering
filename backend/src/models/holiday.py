@@ -7,6 +7,5 @@ class HolidayReference(BaseModel):
 class HolidayCreate(BaseModel):
     date: date
 
-class HolidayUpdate(BaseModel):
-    id: int | None
-    date: date | None
+class HolidayRecord(HolidayCreate):
+    id: int

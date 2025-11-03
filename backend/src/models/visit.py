@@ -8,10 +8,7 @@ class VisitReference(BaseModel):
 class VisitCreate(BaseModel):
     date: date
     student_id: int
-    status: str = Literal['attended', 'skipped', 'absent']
+    status: Literal['attended', 'skipped', 'absent']
 
-class VisitUpdate(BaseModel):
-    id: int | None
-    date: date | None
-    student_id: int | None
-    status: str | None = Literal['attended', 'skipped', 'absent']
+class VisitRecord(VisitCreate):
+    id: int

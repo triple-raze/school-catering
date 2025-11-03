@@ -8,8 +8,5 @@ class ClassCreate(BaseModel):
     digit: int = Field(max_digits=2)
     letter: str = Field(max_length=1)
 
-class ClassUpdate(BaseModel):
-    teacher_id: int | None
-    digit: int | None = Field(max_digits=2)
-    letter: str | None = Field(max_length=1)
-    id: int | None
+class ClassRecord(ClassCreate):
+    id: int 
