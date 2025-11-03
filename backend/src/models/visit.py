@@ -1,9 +1,17 @@
-from pydantic import BaseModel, Field
-from typing import Literal
+from pydantic import BaseModel
+from typing import Literal, Optional
 from datetime import date
 
-class Visit(BaseModel):
+class VisitReference(BaseModel):
     id: int
-    class_student_id: int
-    status: str = Literal['attended', 'skipped', 'absent']
+
+class VisitCreate(BaseModel):
     date: date
+    student_id: int
+    status: str = Literal['attended', 'skipped', 'absent']
+
+class VisitUpdate(BaseModel):
+    id: int | None
+    date: date | None
+    student_id: int | None
+    status: str | None = Literal['attended', 'skipped', 'absent']
