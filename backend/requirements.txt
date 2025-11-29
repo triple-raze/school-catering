@@ -1,7 +1,0 @@
-fastapi
-asyncpg
-pydantic
-
-python-jose
-bcrypt
-nanoid
